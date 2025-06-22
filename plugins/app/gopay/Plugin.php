@@ -67,6 +67,14 @@ class Plugin extends PluginBase
                 'permissions' => ['app.gopay.*'],
                 'order' => 500,
             ],
+            'logs' => [
+                'label'       => 'GoPay Logy',
+                'url'         => Backend::url('app/gopay/controllers/gopaylogs'),
+                'icon'        => 'icon-file-text-o',
+                'permissions' => ['app.gopay.*'],
+                'order'       => 500,
+            ],
+
         ];
     }
 }

@@ -1,0 +1,17 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    type:
+        label: Typ
+        span: auto
+        disabled: true
+    payload:
+        label: Payload
+        type: textarea
+        size: giant
+        disabled: true
+    created_at:
+        label: Vytvorené
+        disabled: true

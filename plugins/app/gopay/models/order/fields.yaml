@@ -3,6 +3,48 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    transaction_id:
+        label: Transakcia
+        span: left
+        readOnly: true
+
+    amount:
+        label: Suma (€)
+        span: left
+        type: number
+        readOnly: true
+
+    currency:
+        label: Mena
+        span: auto
+        readOnly: true
+
+    status:
+        label: Stav platby
+        type: dropdown
+        span: left
+        options:
+            created: Vytvorená
+            paid: Zaplatená
+            cancelled: Zrušená
+            refunded: Vrátená
+        readOnly: true
+
+    customer_email:
+        label: Email zákazníka
+        span: right
+        readOnly: true
+
+    paid_at:
+        label: Zaplatené dňa
+        type: datetime
+        mode: date
+        format: d.m.Y H:i
+        readOnly: true
+
+    metadata:
+        label: Metadata
+        type: codeeditor
+        language: json
+        size: large
+        readOnly: true

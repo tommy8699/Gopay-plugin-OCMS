@@ -6,3 +6,30 @@ columns:
     id:
         label: ID
         searchable: true
+        sortable: true
+
+    transaction_id:
+        label: Transakcia
+        searchable: true
+
+    amount:
+        label: Suma (€)
+        type: number
+        sortable: true
+
+    currency:
+        label: Mena
+        searchable: true
+
+    status:
+        label: Stav
+        type: partial
+        path: ~/plugins/app/gopay/models/order/_status.htm
+        sortable: true
+
+    customer_email:
+        label: Zákazník
+
+    paid_at:
+        label: Zaplatené dňa
+        type: datetime

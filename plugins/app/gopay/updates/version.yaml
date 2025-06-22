@@ -1,2 +1,4 @@
 v1.0.1: First version of gopay
     - create_orders_table.php
+    - create_gopay_failed_webhooks_table.php
+    - create_gopay_logs_table.php
