@@ -1,0 +1,8 @@
+{
+    "name": "app/gopay-plugin",
+    "type": "october-plugin",
+    "description": "Gopay",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
