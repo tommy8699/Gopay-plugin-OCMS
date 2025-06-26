@@ -1,13 +1,48 @@
-<?php
+<?php namespace App\Gopay\Controllers;
 
-namespace App\Gopay\Controllers;
-
+use App\Gopay\Models\GopayFailedWebhooks;
+use BackendMenu;
+use Backend\Classes\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use System\Classes\Controller;
 
+/**
+ * Webhook Controller Backend Controller
+ *
+ * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
+ */
 class WebhookController extends Controller
 {
+    public $implement = [
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+    ];
+
+    /**
+     * @var string formConfig file
+     */
+    public $formConfig = 'config_form.yaml';
+
+    /**
+     * @var string listConfig file
+     */
+    public $listConfig = 'config_list.yaml';
+
+    /**
+     * @var array required permissions
+     */
+    public $requiredPermissions = ['app.gopay.webhookcontroller'];
+
+    /**
+     * __construct the controller
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        BackendMenu::setContext('App.Gopay', 'gopay', 'webhookcontroller');
+    }
+
     public function notify(Request $request)
     {
         $secret = env('GOPAY_SECRET');
@@ -27,7 +62,7 @@ class WebhookController extends Controller
         try {
 
         } catch (\Throwable $e) {
-            FailedWebhook::create([
+            GopayFailedWebhooks::create([
                 'payload' => $rawBody,
                 'signature' => $incomingSignature,
                 'error' => $e->getMessage(),

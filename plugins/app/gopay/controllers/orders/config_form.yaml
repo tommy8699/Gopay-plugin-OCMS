@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/app/gopay/models/order/fields.yaml
+
+# Model Class name
+modelClass: App\Gopay\Models\Order
+
+# Default redirect location
+defaultRedirect: app/gopay/orders
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: app/gopay/orders/update/:id
+    redirectClose: app/gopay/orders
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: app/gopay/orders
+    redirectClose: app/gopay/orders
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

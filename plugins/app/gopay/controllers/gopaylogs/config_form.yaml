@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Gopay Log
+
+# Model Form Field configuration
+form: $/app/gopay/models/gopaylog/fields.yaml
+
+# Model Class name
+modelClass: App\Gopay\Models\GopayLog
+
+# Default redirect location
+defaultRedirect: app/gopay/gopaylogs
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: app/gopay/gopaylogs/update/:id
+    redirectClose: app/gopay/gopaylogs
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: app/gopay/gopaylogs
+    redirectClose: app/gopay/gopaylogs
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
