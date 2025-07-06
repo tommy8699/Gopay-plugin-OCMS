@@ -44,28 +44,4 @@ class Orders extends Controller
 
         BackendMenu::setContext('App.Gopay', 'gopay', 'orders');
     }
-
-    public function startPayment($id)
-    {
-        $order = Order::findOrFail($id);
-        $gateway = new PaymentGateway();
-
-        return redirect($gateway->start($order));
-    }
-
-    public function handleCallback(Request $request)
-    {
-        $gateway = new PaymentGateway();
-        $result = $gateway->handleCallback($request);
-
-        if ($result['status'] === 'paid') {
-            $order = Order::find($result['order_id']);
-            if ($order && $order->status !== 'paid') {
-                $order->status = 'paid';
-                $order->save();
-            }
-        }
-
-        return response('OK', 200);
-    }
 }
